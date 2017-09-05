@@ -1,0 +1,37 @@
+{
+  "name": "move-on",
+  "version": "1.0.0",
+  "description": "Creates a queue of sync or async functions with resolve and reject callback.",
+  "main": "index.js",
+  "keywords": [
+    "function",
+    "chain",
+    "queue",
+    "this",
+    "resolve",
+    "reject",
+    "catch",
+    "synchronous",
+    "asynchronous",
+    "sync",
+    "async"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devrafalko/move-on.git"
+  },
+  "author": "Paweł Rafałko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devrafalko/move-on/issues"
+  },
+  "homepage": "https://github.com/devrafalko/move-on#readme",
+  "dependencies": {
+    "cli-color": "^1.2.0",
+    "of-type": "^2.1.0",
+    "typeof-arguments": "^3.1.0"
+  }
+}
