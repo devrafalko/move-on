@@ -1,5 +1,10 @@
 # Description
 `move-on` is a very light module that creates a chain of synchronous or asynchronous functions and sets its **own inner userContext** object for `this` keyword for all chained functions.
+* `move-on` [module function](#moveonlist-usercontext-done-catch) executes the functions sequentially in the chain.  
+  The  `done` [function](#doneusercontextreject-function) is called when the last function from the chain is resolved.
+* `move-on` `all` [static method](#moveonalllist-usercontext-done-catch) executes all the functions simultaneously.  
+  The `done` [function](#doneusercontextreject-function) is called when all functions from the chain are resolved.
+
 
 * Any bugs found? Give me to know on dev.rafalko@gmail.com or on [GitHub](https://github.com/devrafalko/move-on)
 
@@ -33,6 +38,8 @@ function onError(userContext,msg){
 
 # Usage
 ### `moveOn(list, userContext, done, catch)`
+
+### `moveOn.all(list, userContext, done, catch)`
 
 ##### `list` **[Array]**
 * The [Array] list should contain the [Function] items that will be chained and executed back-to-back.

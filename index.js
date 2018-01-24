@@ -6,17 +6,48 @@ const moduleName = require('./package.json').name;
 const clc = require('cli-color');
 const warn = clc.bgYellow.blue;
 
-module.exports = function(list,userContext,finalThen,finalCatch){
-  args(arguments,[Array,[Object,null],Function,Function],(o)=>{
-    throw new TypeError(`${warn(moduleName)}: ${o.message}`);
-  });
-  for(var i in list){
-    if(!type(list[i],Function)) throw new TypeError(`${warn(moduleName)}: Each [Array] list item must be of [Function] type.`);
-  }
-  var bFinalThen = finalThen.bind(userContext,userContext,finalCatch);
-  var bReject = finalCatch.bind(userContext,userContext);
-  var b = list.reduceRight((a,b)=>{
-    return b.bind(userContext,a,bReject);
-  },bFinalThen);
-  b();
+module.exports = function(){
+  _moveOn.apply(this,arguments);
 };
+
+module.exports.all = function(){
+  var args = Array.prototype.slice.call(arguments);
+  args.push('add');
+  _moveOn.apply(this,args);
+};
+
+function _moveOn(){
+  return (function(list,userContext,finalThen,finalCatch){
+    args(arguments,[Array,[Object,null],Function,Function],(o)=>{
+      throw new TypeError(`${warn(moduleName)}: ${o.message}`);
+    });
+
+    for(var i in list){
+      if(!type(list[i],Function)) throw new TypeError(`${warn(moduleName)}: Each [Array] list item must be of [Function] type.`);
+    }
+    var bFinalThen = finalThen.bind(userContext,userContext,finalCatch);
+    var bReject = finalCatch.bind(userContext,userContext);
+    var add = arguments[arguments.length-1] === 'add';
+
+    if(add){
+      var iter = 0;
+      var rejected = false;
+      for(let fun of list) fun.call(userContext,asyncDone,asyncCatch);
+    } else {
+      var b = list.reduceRight((a,b)=>{
+        return b.bind(userContext,a,bReject);
+      },bFinalThen);
+      b();
+    }
+
+      function asyncCatch(msg){
+        if(!rejected) bReject(msg);
+        rejected = true;
+      }
+
+      function asyncDone(){
+        if(++iter===list.length) bFinalThen();
+      }
+
+  }).apply(this,arguments);
+}
