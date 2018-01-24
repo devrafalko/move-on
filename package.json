@@ -1,6 +1,6 @@
 {
   "name": "move-on",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Creates a queue of sync or async functions with resolve and reject callback.",
   "main": "index.js",
   "keywords": [
