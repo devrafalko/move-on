@@ -21,9 +21,8 @@ function _moveOn(){
     args(arguments,[Array,[Object,null],Function,Function],(o)=>{
       throw new TypeError(`${warn(moduleName)}: ${o.message}`);
     });
-
-    for(var i in list){
-      if(!type(list[i],Function)) throw new TypeError(`${warn(moduleName)}: Each [Array] list item must be of [Function] type.`);
+    for(let fun of list){
+      if(!type(fun,Function)) throw new TypeError(`${warn(moduleName)}: Each [Array] list item must be of [Function] type.`);
     }
     var bFinalThen = finalThen.bind(userContext,userContext,finalCatch);
     var bReject = finalCatch.bind(userContext,userContext);
