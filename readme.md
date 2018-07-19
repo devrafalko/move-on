@@ -1,18 +1,22 @@
-# Description
-`move-on` is a module that:
-* executes the chosen functions *(synchronous and | or asynchronous)* in the chain
-* can be a *(really, really great)* alternative for **Promises**
-* supports **[timeout](#configtimeout)**
-* contains [four methods](#moveonalllist-config-done-catch) that immitate the Promises' [`.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) and [`.race`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) methods
-* allows to set the `this` reference **[inner context](#configcontext)** for all functions in the chain to transmit data between functions  
+<h1>Description</h1>
 
-Any bugs found? Give me to know on [GitHub](https://github.com/devrafalko/move-on)
+<code>move-on</code> is a module that:
+<ul>
+  <li>executes the chosen functions <em>(synchronous and | or asynchronous)</em> in the chain</li>
+  <li>can be a <em>(really, really great)</em> alternative for <strong>Promises</strong></li>
+  <li>supports <strong><a href="#configtimeout">timeout</a></strong></li>
+  <li>contains <a href="#moveonalllist-config-done-catch">four methods</a> that immitate the Promises' <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"><code>.all</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race"><code>.race</code></a> methods</li> 
+  <li>allows to set the <code>this</code> reference <strong><a href="#configcontext">inner context</a></strong> for all functions in the chain to transmit data between functions </li>
+</ul>
 
-# Usage
-#### Node
+<p>Any bugs found? Give me to know on <a href="https://github.com/devrafalko/move-on">GitHub</a>.</p>
+
+<h1>Usage</h1>
+<h4>Node</h4>
+
 `npm install move-on`
 
-#### Browsers
+<h4>Browsers</h4>
 Load the `move-on.min.js` file from the `src` folder in your `.html` file.  
 The module is accessible as `moveOn` in the global scope.  
 It is a `babel` converted and `webpack` bundled module version.
@@ -178,11 +182,12 @@ moveOn(list, config, onDone, onCatch));
 ```
 
 ### `config` **[Object | null]**
-* the [Object] `config` argument allows to set the following **config properties**: [`timeout`](#configtimeout), [`bind`](#configbind), [`context`](#configcontext), [`passContext`](#configpasscontext)
+* the [Object] `config` argument allows to set the following **config properties**: <a href="#configtimeout">timeout</a>, [`bind`](#configbind), [`context`](#configcontext), [`passContext`](#configpasscontext)
 * when the `config` is set to `null` or when it does not define the particular config property or when it defines the config property **incorrectly**, the **default value** is used for this config property **instead**
 * any error is thrown when any config property is defined incorrectly *(the default value is used instead)*
 
-#### `config.timeout`  
+<h4 name="configtimeout"><code>config.timeout</code></h4>
+
 **Type:** [Number | null | Infinity]  
 **Default:** `10000`  
 **Description:**
