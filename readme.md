@@ -4,7 +4,7 @@
 <ul>
   <li>executes the chosen functions <em>(synchronous and | or asynchronous)</em> in the chain</li>
   <li>can be a <em>(really, really great)</em> alternative for <strong>Promises</strong></li>
-  <li>supports <strong><a href="#configtimeout">timeout</a></strong></li>
+  <li>supports <strong><a href="#config-timeout">timeout</a></strong></li>
   <li>contains <a href="#moveonalllist-config-done-catch">four methods</a> that immitate the Promises' <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"><code>.all</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race"><code>.race</code></a> methods</li> 
   <li>allows to set the <code>this</code> reference <strong><a href="#configcontext">inner context</a></strong> for all functions in the chain to transmit data between functions </li>
 </ul>
@@ -182,11 +182,11 @@ moveOn(list, config, onDone, onCatch));
 ```
 
 ### `config` **[Object | null]**
-* the [Object] `config` argument allows to set the following **config properties**: <a href="#configtimeout">timeout</a>, [`bind`](#configbind), [`context`](#configcontext), [`passContext`](#configpasscontext)
+* the [Object] `config` argument allows to set the following **config properties**: <a href="#config-timeout">timeout</a>, [`bind`](#configbind), [`context`](#configcontext), [`passContext`](#configpasscontext)
 * when the `config` is set to `null` or when it does not define the particular config property or when it defines the config property **incorrectly**, the **default value** is used for this config property **instead**
 * any error is thrown when any config property is defined incorrectly *(the default value is used instead)*
 
-<h4 name="configtimeout"><code>config.timeout</code></h4>
+<h4 id="config-timeout"><code>config.timeout</code></h4>
 
 **Type:** [Number | null | Infinity]  
 **Default:** `10000`  
