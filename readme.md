@@ -8,8 +8,20 @@
 
 Any bugs found? Give me to know on [GitHub](https://github.com/devrafalko/move-on)
 
-# Installation
+# Usage
+#### Node
 `npm install move-on`
+
+#### Browsers
+Load the `move-on.min.js` file from the `src` folder in your `.html` file.  
+The module is accessible as `moveOn` in the global scope.  
+It is a `babel` converted and `webpack` bundled module version.
+```html
+<script src="./src/move-on.min.js"></script>
+<script>
+  moveOn(list, config, onDone, onCatch);
+</script>
+```
 
 # Tests
 `npm test`  

@@ -21,7 +21,8 @@
     "async"
   ],
   "scripts": {
-    "test": "node tests/jasmine.conf.js"
+    "test": "node tests/jasmine.conf.js",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -39,8 +40,13 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "jasmine": "^3.1.0",
     "jasmine-spec-reporter": "^4.2.1",
-    "join-array": "^1.1.1"
+    "join-array": "^1.1.1",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
   }
 }

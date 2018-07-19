@@ -1,6 +1,6 @@
 const args = require('typeof-arguments');
 const type = require('of-type');
-const moduleName = require('./../package.json').name;
+const moduleName = 'move-on';
 
 class Utils {
   constructor(l) {
