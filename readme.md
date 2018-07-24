@@ -1,5 +1,4 @@
 <h1>Description</h1>
-
 <code>move-on</code> is a module that:
 <ul>
   <li>executes the chosen functions
@@ -28,18 +27,12 @@
       <a href="#config-context">inner context</a>
     </strong> for all functions in the chain to transmit data between functions <a href="#sample-context-arguments">[sample]</a> <a href="#sample-each-inner">[sample]</a> <a href="#sample-class-methods">[sample]</a></li>
 </ul>
-
 <p>Any bugs found? Give me to know on
   <a href="https://github.com/devrafalko/move-on">GitHub</a>.</p>
-
 <h1>Usage</h1>
-
 <h4>Node</h4>
-
 <code>npm install move-on</code>
-
 <h4>Browsers</h4>
-
 <p>Load the
   <code>move-on.min.js</code> file from the
   <code>src</code> folder in your
@@ -56,11 +49,8 @@ It is a
   moveOn(list, config, onDone, onCatch);
 </script>
 ```
-
 <h1>Tests</h1>
-
 <code>npm test</code>
-
 <h1>Simple sample</h1>
 
 ```javascript
@@ -90,9 +80,7 @@ function displayData(resolve, reject, context){
 function onDone(reject, context){}
 function onCatch(context){}
 ```
-
 <h1>Methods short description</h1>
-
 <p>The module's methods expect the [Array]
 <a href="#list-argument">
   <code>list</code></a> of functions to be passed as the first argument. Each function in the chain has the
@@ -109,9 +97,9 @@ function onCatch(context){}
 <a href="#catch-argument">
   <code>catch</code>
 </a> callback function is called.</p>
-
-<h4>1. <code>moveOn</code></h4>
-
+<h4>1.
+  <code>moveOn</code>
+</h4>
 <p>The chained functions are executed sequentially
 <em>(one after another)</em>. Each function is expected to be
 <a href="#chained-functions">
@@ -128,9 +116,9 @@ function onCatch(context){}
 </a> function, when at least one chained function failed
 <em>(<a href="#chained-functions">rejected</a>)</em>.<br/>
 <a href="#moveon-behaviour">See the full description below</a>.<br/>See the samples: <a href="#sample-sync-async">[sample]</a> <a href="#sample-context-arguments">[sample]</a> <a href="#sample-reject">[sample]</a> <a href="#sample-return-resolve">[sample]</a> <a href="#sample-multiple-resolve">[sample]</a> <a href="#sample-class-methods">[sample]</a> <a href="#sample-email-validation">[sample]</a></p>
-
-<h4>2. <code>moveOn.all</code></h4>
-
+<h4>2.
+  <code>moveOn.all</code>
+</h4>
 <p>The
 <code>all</code> static method of
 <code>move-on</code> module executes all chosen functions at the same time
@@ -152,9 +140,9 @@ function onCatch(context){}
 </a> function, when at least one chained function failed
 <em>(<a href="#chained-functions">rejected</a>)</em>.<br/>
 <a href="#moveon-all-behaviour">See the full description below</a>.<br/>See the samples: <a href="#sample-all">[sample]</a></p>
-
-<h4>3. <code>moveOn.each</code></h4>
-
+<h4>3.
+  <code>moveOn.each</code>
+</h4>
 <p>The
 <code>each</code> static method of
 <code>move-on</code> module executes all chosen functions at the same time. Each chained function is expected to be either
@@ -174,9 +162,9 @@ function onCatch(context){}
   <code>catch</code>
 </a> callback function.<br/>
 <a href="#moveon-each-behaviour">See the full description below</a>.<br/>See the samples: <a href="#sample-each-inner">[sample]</a></p>
-
-<h4>4. <code>moveOn.first</code></h4>
-
+<h4>4.
+  <code>moveOn.first</code>
+</h4>
 <p>The
 <code>first</code> static method of
 <code>move-on</code> module executes all chained functions at the same time. It expects the first
@@ -197,12 +185,22 @@ function onCatch(context){}
   <code>catch</code>
 </a> function is called instead.<br/>
 <a href="#moveon-first-behaviour">See the full description below</a>.<br/>See the samples: <a href="#sample-first">[sample]</a></p>
-
 <h1>Methods behaviour</h1>
-
-<h3 id="moveon-behaviour">moveOn( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
-
-<p><ul>
+<h3 id="moveon-behaviour">moveOn(
+  <a href="#list-argument">
+    <code>list</code>
+  </a>,
+  <a href="#config-argument">
+    <code>config</code>
+  </a>,
+  <a href="#done-argument">
+    <code>done</code>
+  </a>,
+  <a href="#catch-argument">
+    <code>catch</code>
+  </a>)
+</h3>
+<ul>
   <li>The
     <code>move-on</code> module function executes the
     <a href="#list-argument">
@@ -290,11 +288,22 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-sync-async">[sample]</a> <a href="#sample-context-arguments">[sample]</a> <a href="#sample-reject">[sample]</a> <a href="#sample-return-resolve">[sample]</a> <a href="#sample-multiple-resolve">[sample]</a> <a href="#sample-class-methods">[sample]</a> <a href="#sample-email-validation">[sample]</a>
   </li>
-</ul></p>
-
-<h3 id="moveon-all-behaviour">moveOn.all( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
-
-<p><ul>
+</ul>
+<h3 id="moveon-all-behaviour">moveOn.all(
+  <a href="#list-argument">
+    <code>list</code>
+  </a>,
+  <a href="#config-argument">
+    <code>config</code>
+  </a>,
+  <a href="#done-argument">
+    <code>done</code>
+  </a>,
+  <a href="#catch-argument">
+    <code>catch</code>
+  </a>)
+</h3>
+<ul>
   <li>
     <code>move-on</code>.<code>all</code> static method executes all the
     <a href="#list-argument">
@@ -380,11 +389,22 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-all">[sample]</a>
   </li>
-</ul></p>
-
-<h3 id="moveon-each-behaviour">moveOn.each( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
-
-<p><ul>
+</ul>
+<h3 id="moveon-each-behaviour">moveOn.each(
+  <a href="#list-argument">
+    <code>list</code>
+  </a>,
+  <a href="#config-argument">
+    <code>config</code>
+  </a>,
+  <a href="#done-argument">
+    <code>done</code>
+  </a>,
+  <a href="#catch-argument">
+    <code>catch</code>
+  </a>)
+</h3>
+<ul>
   <li>
     <code>move-on</code>.<code>each</code> static method executes all the
     <a href="#list-argument">
@@ -454,11 +474,22 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-each-inner">[sample]</a>
   </li>
-</ul></p>
-
-<h3 id="moveon-first-behaviour">moveOn.first( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
-
-<p><ul>
+</ul>
+<h3 id="moveon-first-behaviour">moveOn.first(
+  <a href="#list-argument">
+    <code>list</code>
+  </a>,
+  <a href="#config-argument">
+    <code>config</code>
+  </a>,
+  <a href="#done-argument">
+    <code>done</code>
+  </a>,
+  <a href="#catch-argument">
+    <code>catch</code>
+  </a>)
+</h3>
+<ul>
   </li>
   <li>
     <code>move-on</code>.<code>first</code> static method executes all the
@@ -535,10 +566,8 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-first">[sample]</a>
   </li>
-</ul></p>
-
+</ul>
 <h1>Arguments</h1>
-
 <ol>
   <li>
     <a href="#list-argument">
@@ -561,9 +590,10 @@ function onCatch(context){}
     </a>
   </li>
 </ol>
-
-<h3 id="list-argument"><code>list</code> <strong>[Array: function | array]</strong></h3>
-
+<h3 id="list-argument">
+  <code>list</code>
+  <strong>[Array: function | array]</strong>
+</h3>
 The [Array]
 <code>list</code> stores the list of functions, that should be called. It can contain:
 <ul>
@@ -583,9 +613,7 @@ The [Array]
     <code>const list = [fnA, [obj, 'fnB', 'fnC'], fnD]</code>
   </li>
 </ul>
-
 <h4 id="list-mode-a">1. [Function] items</h4>
-
 <ul>
   <li>The [Array]
     <code>list</code> can contain [Function] items. It may be function, arrow function or object's method</li>
@@ -608,9 +636,8 @@ const computeData = ()=>{};
 const displayData = { display:()=>{} };
 const list = [retrieveData, computeData, displayData.display];
 ```
-
+<p></p>
 <h4 id="list-mode-b">2. [Array: function] items for individual binding</h4>
-
 <ul>
   <li>All chained functions are
     <a href="#config-bind">bound</a> by default to the
@@ -674,9 +701,8 @@ const list = [
 ];
 moveOn(list, config, onDone, onCatch));
 ```
-
+<p></p>
 <h4 id="list-mode-c">3. [Array: string] items for methods</h4>
-
 The methods passed to the
 <a href="#list-argument">
   <code>list</code>
@@ -751,9 +777,11 @@ const list = [ [workers, 'addWorker', 'listEarnings'], displayData ];
 
 moveOn(list, config, onDone, onCatch));
 ```
-
-<h3 id="config-argument"><code>config</code> <strong>[Object | null]</strong></h3>
-
+<p></p>
+<h3 id="config-argument">
+  <code>config</code>
+  <strong>[Object | null]</strong>
+</h3>
 <ul>
   <li>the [Object]
     <code>config</code> argument allows to set the following
@@ -782,9 +810,9 @@ moveOn(list, config, onDone, onCatch));
     <em>(the default value is used instead)</em>
   </li>
 </ul>
-
-<h4 id="config-timeout"><code>config.timeout</code></h4>
-
+<h4 id="config-timeout">
+  <code>config.timeout</code>
+</h4>
 <strong>Type:</strong> [Number | null | Infinity]</br>
 <strong>Default:</strong>
 <code>10000</code>
@@ -898,9 +926,7 @@ moveOn(list, config, onDone, onCatch));
     <strong>default</strong> value is set instead</li>
   <li>Samples: <a href="#sample-all">[sample]</a> <a href="#sample-first">[sample]</a></li>
 </ul>
-
 <h5 id="timeout-error">Timeout error</h5>
-
 It is an [Error] object with the following properties, that allow to distinguish, that the
 <strong>timeout</strong> error has been passed:
 <ul>
@@ -918,9 +944,9 @@ It is an [Error] object with the following properties, that allow to distinguish
     <code>"ETIMEDOUT"</code>
   </li>
 </ul>
-
-<h4 id="config-context"><code>config.context</code></h4>
-
+<h4 id="config-context">
+  <code>config.context</code>
+</h4>
 <strong>Type:</strong> [any]
 <br/>
 <strong>Default:</strong>
@@ -966,9 +992,9 @@ It is an [Error] object with the following properties, that allow to distinguish
     </a> to false</li>
   <li>Samples: <a href="#sample-context-arguments">[sample]</a> <a href="#sample-each-inner">[sample]</a> <a href="#sample-class-methods">[sample]</a></li>
 </ul>
-
-<h4 id="config-passcontext"><code>config.passContext</code></h4>
-
+<h4 id="config-passcontext">
+  <code>config.passContext</code>
+</h4>
 <strong>Type:</strong> [Boolean]
 <br/>
 <strong>Default:</strong>
@@ -1085,9 +1111,9 @@ It is an [Error] object with the following properties, that allow to distinguish
   </li>
   <li>Samples: <a href="#sample-all">[sample]</a> <a href="#sample-each-inner">[sample]</a></li>
 </ul>
-
-<h4 id="config-bind"><code>config.bind</code></h4>
-
+<h4 id="config-bind">
+  <code>config.bind</code>
+</h4>
 <strong>Type:</strong> [Boolean]
 <br/>
 <strong>Default:</strong>
@@ -1130,9 +1156,15 @@ It is an [Error] object with the following properties, that allow to distinguish
     <strong>keep in mind</strong>, that arrow functions are non-binding and that already bound functions cannot have the
     <code>this</code> reference changed anymore</li>
 </ul>
-
-<h3 id="done-argument">done( <a href="#chained-functions"><code>reject</code></a>, <a href="#config-context"><code>context</code></a> ) <strong>[Function]</strong></h3>
-
+<h3 id="done-argument">done(
+  <a href="#chained-functions">
+    <code>reject</code>
+  </a>,
+  <a href="#config-context">
+    <code>context</code>
+  </a>)
+  <strong>[Function]</strong>
+</h3>
 The
 <code>done</code> is a callback function, that
 <em>(in general)</em> is called as the last one, when the
@@ -1250,9 +1282,8 @@ The
       <code>list</code>
     </a> function </li>
 </ol>
-
-<h4 id="resolvemap"><code>resolveMap</code> object</h4>
-
+<h4 id="resolvemap">
+  <code>resolveMap</code> object</h4>
 <ul>
   <li>The
     <code>resolveMap</code> object is passed through
@@ -1336,9 +1367,12 @@ The
   </li>
   <li>Samples: <a href="#sample-all">[sample]</a> <a href="#sample-each-inner">[sample]</a></li>
 </ul>
-
-<h3 id="catch-argument">catch( <a href="#config-context"><code>context</code></a> ) <strong>[Function]</strong></h3>
-
+<h3 id="catch-argument">catch(
+  <a href="#config-context">
+    <code>context</code>
+  </a>)
+  <strong>[Function]</strong>
+</h3>
 The
 <code>catch</code> is a callback function, that
 <em>(in general)</em> is called as the last one, when the
@@ -1435,10 +1469,8 @@ The
     </a>
   </li>
 </ol>
-
-
-<h4 id="rejectmap"><code>rejectMap</code> object</h4>
-
+<h4 id="rejectmap">
+  <code>rejectMap</code> object</h4>
 <ul>
   <li>The
     <code>rejectMap</code> object is passed through
@@ -1507,9 +1539,7 @@ The
     </ul>
   </li>
 </ul>
-
 <h1 id="chained-functions">Chained functions</h1>
-
 <ul>
   <li>Each
     <a href="#list-argument">
@@ -1626,9 +1656,14 @@ function fetchData(resolve, reject, context){
   });
 }
 ```
-
-<h1 id="multiple-calls">Multiple<a href="#chained-functions"> <code>resolve</code></a> | <a href="#chained-functions"><code>reject</code> </a>calls</h1>
-
+<p></p>
+<h1 id="multiple-calls">Multiple
+  <a href="#chained-functions">
+    <code>resolve</code>
+  </a> |
+  <a href="#chained-functions">
+    <code>reject</code>
+  </a> calls</h1>
 <ul>
   <li>
     <strong>keep in mind</strong> that both
@@ -1730,9 +1765,8 @@ function fetchData(resolve, reject, context){
   </li>
   <li>Samples: <a href="#sample-return-resolve">[sample]</a> <a href="#sample-multiple-resolve">[sample]</a></li>
 </ul>
-
-<h4 id="inner-moveon-module">inner <code>move-on</code> module</h4>
-
+<h4 id="inner-moveon-module">inner
+  <code>move-on</code> module</h4>
 <ul>
   <li>the
     <a href="#list-argument">
@@ -1751,9 +1785,7 @@ function fetchData(resolve, reject, context){
     </a> function</li>
   <li>Samples: <a href="#sample-multiple-resolve">[sample]</a> <a href="#sample-each-inner">[sample]</a></li>
 </ul>
-
 <h1>Code examples</h1>
-
 <h4 id="sample-sync-async">1. The <code>move-on</code> chain of synchronous and asynchronous functions</h4>
 
 ```javascript
@@ -1797,7 +1829,6 @@ function onCatch(context, err) {
   throw new Error(`Could not get the data: ${err}`);
 }
 ```
-
 <h4 id="sample-context-arguments">2. The <code>move-on</code> module with the user <code>config.context</code> and the arguments passed through the <code>resolve</code> and <code>reject</code> arrow callback functions</h4>
 
 ```javascript
@@ -1826,9 +1857,7 @@ moveOn([check], config, (reject, context) => {
   console.error(err); //The [String] argument passed through the reject callback function
 });
 ```
-
 <h4 id="sample-reject">3. The <code>move-on</code> module that rejects</h4>
-
 <blockquote>
   Mind that the second <strong>rejected</strong> function ends up the execution of further chained functions.<br/>
 </blockquote>
@@ -1857,9 +1886,7 @@ function onCatch(context, message) {
   console.log(message); //oops!
 }
 ```
-
 <h4 id="sample-return-resolve">4. The <code>move-on</code> instructions after <code>resolve</code> call</h4>
-
 <blockquote>
   In order to end up the chained function's execution, call <code>return resolve();</code>
 </blockquote>
@@ -1903,9 +1930,7 @@ function onCatch(context, msg) {
   console.log(msg); //oops!
 }
 ```
-
 <h4 id="sample-multiple-resolve">5. The inner <code>move-on</code> module and multiple <code>resolve</code> and <code>reject</code> calls</h4>
-
 <blockquote>
   <strong>Mind</strong> how <em>X</em>, <em>Y</em> and <em>Z</em> functions of the inner module execute between <em>A</em>, <em>B</em> and <em>C</em> chained functions.<br/>
   <strong>Mind</strong> how the <em>B</em> and <em>C</em> chained functions are executed twice, by double <code>resolve</code> call in <em>A</em> chained function.
@@ -1950,16 +1975,13 @@ function onCatch() {
   console.log('Catch');
 }
 ```
-
 <h4 id="sample-all">6. The <code>move-on</code>.<code>all</code> chain</h4>
-
 <blockquote>
   It calls <code>done</code> callback function right after <strong>all</strong> chained functions are resolved.<br/>
   The user's shorter <code>config.timeout</code> is set.<br/>
   The <code>reject</code> callback functions are not used. In case of error, the <code>catch</code> callback function will still be called with <code>config.timeout</code> error.<br/>
   All retrieved data is passed through the <code>resolve</code> callback and accessible in the <code>ResolveMap</code> <code>done</code> callback function.
-  
-</blockquote>
+  </blockquote>
 
 ```javascript
 const moveOn = require('move-on');
@@ -2005,9 +2027,7 @@ function onCatch(err) {
   throw new Error(err);
 }
 ```
-
 <h4 id="sample-each-inner">7. The <code>move-on</code>.<code>each</code> inner module</h4>
-
 <blockquote>
   The <code>move-on</code> is used to get the files list asynchronously and then to copy all files asynchronously.<br/>
   The inner <code>move-on</code>.<code>each</code> module is injected in the second chained function in order to report the success | failure message for each copied file.<br/>
@@ -2069,9 +2089,7 @@ function onCatch(err) {
   throw new Error(err);
 }
 ```
-
 <h4 id="sample-first">8. The <code>move-on</code>.<code>first</code> module</h4>
-
 <blockquote>
   It sends the request for the three urls and waits for the first <em>(fastest)</em> response.
 </blockquote>
@@ -2109,9 +2127,7 @@ function loadLibrary() {
   }
 }
 ```
-
 <h4 id="sample-class-methods">9. The chain of class instance's methods</h4>
-
 <blockquote>
   The <code>config.context</code> is set to the class instance's <code>this</code> reference, thus the chained methods still have the access to all instance's properties and methods.
 </blockquote>
@@ -2156,10 +2172,7 @@ class Vegetables {
   _addIngredients() { }
 }
 ```
-
-
 <h4 id="sample-email-validation">10. The email validation sample</h4>
-
 <blockquote>
   <strong>Mind</strong> that chained functions are passed as [String] methods' names to retain the access to the <code>this</code> reference to the class instance.<br/>
   The <code>done</code> and <code>catch</code> calls the same <code>callback function</code>. The <code>reject</code> is used to terminate the further chained functions and the <code>resolve</code> to continue execution. <strong>Mind</strong> that <em>isString</em> and <em>isAvailable</em> methods call <code>reject</code> to stop the module execution.<br/>
