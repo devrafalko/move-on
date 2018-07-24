@@ -202,7 +202,7 @@ function onCatch(context){}
 
 <h3 id="moveon-behaviour">moveOn( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
 
-<ul>
+<p><ul>
   <li>The
     <code>move-on</code> module function executes the
     <a href="#list-argument">
@@ -290,11 +290,11 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-sync-async">[sample]</a> <a href="#sample-context-arguments">[sample]</a> <a href="#sample-reject">[sample]</a> <a href="#sample-return-resolve">[sample]</a> <a href="#sample-multiple-resolve">[sample]</a> <a href="#sample-class-methods">[sample]</a> <a href="#sample-email-validation">[sample]</a>
   </li>
-</ul>
+</ul></p>
 
 <h3 id="moveon-all-behaviour">moveOn.all( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
 
-<ul>
+<p><ul>
   <li>
     <code>move-on</code>.<code>all</code> static method executes all the
     <a href="#list-argument">
@@ -380,11 +380,11 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-all">[sample]</a>
   </li>
-</ul>
+</ul></p>
 
 <h3 id="moveon-each-behaviour">moveOn.each( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
 
-<ul>
+<p><ul>
   <li>
     <code>move-on</code>.<code>each</code> static method executes all the
     <a href="#list-argument">
@@ -454,11 +454,11 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-each-inner">[sample]</a>
   </li>
-</ul>
+</ul></p>
 
 <h3 id="moveon-first-behaviour">moveOn.first( <a href="#list-argument"><code>list</code></a>, <a href="#config-argument"><code>config</code></a>, <a href="#done-argument"><code>done</code></a>, <a href="#catch-argument"><code>catch</code></a> )</h3>
 
-<ul>
+<p><ul>
   </li>
   <li>
     <code>move-on</code>.<code>first</code> static method executes all the
@@ -535,7 +535,7 @@ function onCatch(context){}
   <li>
     Samples: <a href="#sample-first">[sample]</a>
   </li>
-</ul>
+</ul></p>
 
 <h1>Arguments</h1>
 
