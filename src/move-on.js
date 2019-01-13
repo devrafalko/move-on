@@ -1,5 +1,5 @@
-const args = require('typeof-arguments');
-const type = require('of-type');
+import args from 'typeof-arguments';
+import type from 'of-type';
 const moduleName = 'move-on';
 
 class Utils {
@@ -142,7 +142,6 @@ class MoveOn {
       if (!type(fun, [Function, Array])) throw this.error.incorrectListItem(i);
       if (type(fun, Array)) {
         if (fun.length === 0) continue;
-        if (!type(fun[0], 'Object|instance')) throw this.error.incorrectObjectItem(i);
         fun.forEach((item, index) => {
           if (index !== 0 && !type(item, [String, Function])) throw this.error.incorrectMethodItem(i, index);
           if (index !== 0 && type(item, String) && !type(fun[0][item], Function)) throw this.error.incorrectMethodName(item, i, index);
@@ -156,7 +155,7 @@ class MoveOn {
     if (type(config, null)) return;
     if (config.hasOwnProperty('timeout') && type(config.timeout, null) || ((type(config.timeout, Number)) & config.timeout >= 0 & Math.round(config.timeout) === config.timeout && !isNaN(config.timeout))) this.config.timeout = config.timeout;
     if (config.hasOwnProperty('bind') && type(config.bind, Boolean)) this.config.bind = config.bind;
-    if (config.hasOwnProperty('context') && type(config.context, 'Object|instance')) this.config.context = config.context;
+    if (config.hasOwnProperty('context')) this.config.context = config.context;
     if (config.hasOwnProperty('passContext') && type(config.passContext, Boolean)) this.config.passContext = config.passContext;
   }
 
@@ -357,4 +356,4 @@ const statics = {
   }
 };
 
-module.exports = Object.defineProperties(moveOn, statics);
+export default Object.defineProperties(moveOn, statics);

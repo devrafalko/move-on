@@ -26,12 +26,17 @@ describe('When the module is executed with all arguments of correct types and wi
         this.loop((method) => expect(method.bind(null, [() => { }, [this.objectTemplate], () => { }], {}, () => { }, () => { })).not.toThrowError());
       });
     });
-    describe('of which the first item is of incorrect type', function () {
-      it('it should throw a TypeError that this item is of incorrect type and that the [Object] type is expected', function () {
-        for (let [key, value] of this.types) {
-          if (key === 'Workers' || key === 'Object') continue;
-          this.loop((method) => expect(method.bind(null, [() => { }, [value], () => { }], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [1][0] item. The item of [Object] type is expected.'));
-          this.loop((method) => expect(method.bind(null, [() => { }, () => { }, () => { }, [value, 'greet', 'names'], () => { }], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [3][0] item. The item of [Object] type is expected.'));
+    describe('that contains only one value item of any type', function () {
+      it('it should not throw any errors', function () {
+        for (let [value] of this.types) {
+          this.loop((method) => expect(method.bind(null, [() => { }, [value], () => { }], {}, () => { }, () => { })).not.toThrowError());
+        }
+      });
+    });
+    describe('that contains first item of any type and the further [Function] items', function () {
+      it('it should not throw any errors', function () {
+        for (let [value] of this.types) {
+          this.loop((method) => expect(method.bind(null, [() => { }, [value, ()=>{}, ()=>{}], () => { }], {}, () => { }, () => { })).not.toThrowError());
         }
       });
     });
@@ -50,6 +55,10 @@ describe('When the module is executed with all arguments of correct types and wi
         this.loop((method) => expect(method.bind(null, [() => { }, [this.objectTemplate, 'greet', 'hello', 'names'], () => { }], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [1][2] item. The given [1][0] object does not define ["hello"] method.'));
         this.loop((method) => expect(method.bind(null, [[this.objectTemplate, this.objectTemplate.names, 'greet', 'workers'], () => { }], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [0][3] item. The given [0][0] object does not define ["workers"] method.'));
         this.loop((method) => expect(method.bind(null, [() => { }, () => { }, [this.objectTemplate, 'tasks', 'names', this.objectTemplate.greet], () => { }], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [2][1] item. The given [2][0] object does not define ["tasks"] method.'));
+        for (let [value] of this.types) {
+          this.loop((method) => expect(method.bind(null, [() => { }, () => { }, [value, '_names'], () => { }], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [2][1] item. The given [2][0] object does not define ["_names"] method.'));
+          this.loop((method) => expect(method.bind(null, [() => { }, () => { }, () => { }, [value, '_hello']], {}, () => { }, () => { })).toThrowError(TypeError, 'move-on: Invalid argument [0]. Incorrect [3][1] item. The given [3][0] object does not define ["_hello"] method.'));
+        }
       });
     });
   });

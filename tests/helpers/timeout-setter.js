@@ -1,8 +1,7 @@
 /* global jasmine, beforeAll, expect */
 
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
-const type = require('of-type');
+import move from './../../src/move-on.js';
+import type from 'of-type';
 
 class TimeoutChain {
   constructor(onDone, onCatch) {

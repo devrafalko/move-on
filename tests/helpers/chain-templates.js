@@ -1,6 +1,5 @@
 /* global beforeAll */
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
+import move from './../../src/move-on.js';
 
 beforeAll(function () {
   this.f = {

@@ -1,6 +1,6 @@
 /* global describe, beforeAll, it */
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
+import move from './../src/move-on.js';
+
 describe('When the', function () {
   beforeAll(function () {
     this.defaultTimeout = 10000;

@@ -1,8 +1,7 @@
 /* global beforeAll */
 
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
-const type = require('of-type');
+import move from './../../src/move-on.js';
+import type from 'of-type';
 
 beforeAll(function () {
   this.passArguments = function ({ context = this.context, methods = [move], passContext = true, list, doneCallback = () => () => { }, catchCallback = () => () => { } } = {}) {

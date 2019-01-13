@@ -1,6 +1,5 @@
 /* global describe, beforeAll, it, expect */
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
+import move from './../src/move-on.js';
 
 describe('The "first" static method', function () {
   it('should be accessible via the move-on module', function () {

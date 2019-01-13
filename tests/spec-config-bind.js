@@ -1,7 +1,6 @@
 /*global describe, it, expect*/
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
-const thisMount = require(path.resolve('./tests/helpers/this-mount.js'));
+import move from './../src/move-on.js';
+import thisMount from './helpers/this-mount.js';
 
 describe('When the module is executed', function () {
   const method = move;

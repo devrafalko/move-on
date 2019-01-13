@@ -78,12 +78,12 @@ class ThisMount {
   }
 }
 
-module.exports = function () {
+export default function () {
   new ThisMount().thisMount(...arguments);
-};
+}
 
 function appendFunctions(map, data) {
-  const getGlobal = () => ({ context: () => global, description: 'global object' });
+  //const getGlobal = () => ({ context: () => global, description: 'global object' });
   const getContext = () => ({ context: () => data.context, description: 'config.context object' });
   const getLocalThis = () => ({ context: () => this, description: 'object, within the function has been defined' });
   const getUndefined = () => ({ context: () => undefined, description: 'undefined' });
@@ -94,7 +94,7 @@ function appendFunctions(map, data) {
     fn: (c) => function () { c(this); },
     description: 'function',
     on: getContext(),
-    off: getGlobal()
+    off: getUndefined() //in non-strict mode it returns global object
   };
 
   map.functions.simple.arrowFunction = {
@@ -108,7 +108,7 @@ function appendFunctions(map, data) {
     fn: (c) => ({ m: function () { c(this); } }.m),
     description: 'object\'s method',
     on: getContext(),
-    off: getGlobal()
+    off: getUndefined() //in non-strict mode it returns global object
   };
 
   map.functions.simple.arrowMethod = {

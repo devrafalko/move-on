@@ -1,5 +1,5 @@
 /* global beforeAll */
-const type = require('of-type');
+import type from 'of-type';
 
 beforeAll(function () {
   this.asyncFun = function ({ resolves, rejects } = {}) {

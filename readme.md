@@ -31,26 +31,38 @@
   <a href="https://github.com/devrafalko/move-on">GitHub</a>.</p>
 <h1>Usage</h1>
 <h4>Node</h4>
-<code>npm install move-on</code>
+<code>npm install move-on</code><br/><br/>
+
+```javascript
+const moveOn = require('move-on');
+```
+
 <h4>Browsers</h4>
-<p>Load the
-  <code>move-on.min.js</code> file from the
-  <code>src</code> folder in your
-  <code>.html</code> file.
-  <br/>The module is accessible as
-  <code>moveOn</code> in the global scope.<br/>
-It is a
-<code>babel</code> converted and
-<code>webpack</code> bundled module version.<br/></p>
+<p>
+  Add the <code>move-on.js</code> library to the HTML file.<br/>
+  The library is located in <code>./dist/move-on.js</code> directory.<br/>
+  It is a webpack&babel bundled cross-browser library version.<br/>
+  The library is accessible as <code>moveOn</code> variable in the global <em>(window)</em> scope.<br/>
 
 ```html
-<script src="./src/move-on.min.js"></script>
+<script src='move-on.js'></script>
 <script>
   moveOn(list, config, onDone, onCatch);
 </script>
 ```
+
 <h1>Tests</h1>
 <code>npm test</code>
+
+```cmd
+> git clone https://github.com/devrafalko/move-on.git
+> cd move-on
+> npm install
+> npm test        //run tests in node
+> npm test err    //run tests in node with failed specs shown
+> npm test deep   //run tests in node with errors' descriptions shown
+```
+
 <h1>Simple sample</h1>
 
 ```javascript

@@ -1,7 +1,7 @@
 /* global beforeAll, jasmine */
 
-const type = require('of-type');
-const join = require('join-array');
+import type from 'of-type';
+import join from 'join-array';
 
 beforeAll(function () {
   jasmine.addMatchers({

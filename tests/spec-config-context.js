@@ -1,6 +1,5 @@
 /* global describe, beforeAll, it, expect */
-const path = require('path');
-const move = require(path.resolve('./src/index.js'));
+import move from './../src/move-on.js';
 
 describe('When the', function () {
   beforeAll(function () {
@@ -3364,7 +3363,7 @@ describe('When the', function () {
                   };
                 }
               });
-    
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectOneChain,
@@ -3374,7 +3373,7 @@ describe('When the', function () {
                   };
                 }
               });
-    
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectOneChain,
@@ -3387,7 +3386,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-    
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectOneChain,
@@ -3400,7 +3399,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-    
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectOneChain,
@@ -3495,7 +3494,7 @@ describe('When the', function () {
                   };
                 }
               });
-    
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3506,7 +3505,7 @@ describe('When the', function () {
                   };
                 }
               });
-    
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3520,7 +3519,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-    
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3534,7 +3533,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-    
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3621,7 +3620,7 @@ describe('When the', function () {
           });
         });
       });
-    
+
       describe('that finally rejects', function () {
         const mode = 'catch';
         describe('and when config.passContext is set to true', function () {
@@ -3637,7 +3636,7 @@ describe('When the', function () {
                   };
                 }
               });
-  
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectAllChain,
@@ -3647,7 +3646,7 @@ describe('When the', function () {
                   };
                 }
               });
-  
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectAllChain,
@@ -3660,7 +3659,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-  
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectAllChain,
@@ -3673,7 +3672,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-  
+
               this.passArguments({
                 methods: [move.first],
                 list: () => this.rejectAllChain,
@@ -3686,7 +3685,7 @@ describe('When the', function () {
                   return new classTemplate().methodTemplate;
                 }
               });
-  
+
             });
           });
           describe('the catch callback function that is already bound with additional arguments', function () {
@@ -3769,7 +3768,7 @@ describe('When the', function () {
                   };
                 }
               });
-  
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3780,7 +3779,7 @@ describe('When the', function () {
                   };
                 }
               });
-  
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3794,7 +3793,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-  
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3808,7 +3807,7 @@ describe('When the', function () {
                   return objectTemplate.methodTemplate;
                 }
               });
-  
+
               this.passArguments({
                 passContext,
                 methods: [move.first],
@@ -3895,7 +3894,7 @@ describe('When the', function () {
           });
         });
       });
-    
+
       describe('that finally resolves but the done callback rejects', function () {
         const mode = 'catch';
         describe('and when config.passContext is set to true', function () {
@@ -4187,6 +4186,76 @@ describe('When the', function () {
             });
           });
         });
+      });
+    });
+  });
+});
+
+describe('When the module is executed with the config.bind set to true and with the config.context', function () {
+  describe('not defined', function () {
+    describe('but with some functions in the collection that have their own context set', function () {
+      it('each function with its own context in the collection should have the this keyword that refers to their own context object|value', function () {
+        const context = { bind: true };
+        for (let key of this.contextObjects) {
+          let fnA = function (resolve) { expect(this).toBe(key); resolve(); };
+          let fnB = function (resolve) { expect(this).toBe(key); resolve(); };
+          this.loop((method) => method([[key, fnA], [key, fnB]], context, () => { }, () => { }));
+        }
+      });
+    });
+    describe('but with all functions in the collection that have the default context set', function () {
+      it('each function in the collection should have the this keyword that refers to the default context object|value', function () {
+        const config = { bind: true };
+        for (let key of this.contextObjects) {
+          let fnA = function (resolve) { expect(this).not.toBe(key); resolve(); };
+          let fnB = function (resolve) { expect(this).not.toBe(key); resolve(); };
+          this.loop((method) => method([fnA, fnB], config, () => { }, () => { }));
+        }
+      });
+    });
+  });
+
+  describe('defined as any value', function () {
+    describe('but with some functions in the collection that have their own context set', function () {
+      it('each function with its own context in the collection should have the this keyword that refers to their own context object|value and each function without its own context in the collection should have the this keyword that refers to the default context object|value', function () {
+        const individualContext = { name: 'Elon', age: 22 };
+        for (let key of this.contextObjects) {
+          let config = { bind: true, context: key };
+          let fnA = function (resolve) { expect(this).toBe(individualContext); resolve(); };
+          let fnB = function (resolve) { expect(this).toBe(key); resolve(); };
+          this.loop((method) => method([[individualContext, fnA], fnB], config, () => { }, () => { }));
+        }
+      });
+      it('the done and catch functions should have the this keyword that refers to the default context object|value', function () {
+        const individualContext = { name: 'Elon', age: 22 };
+        const fnA = function (resolve) { resolve(); };
+        const fnB = function (resolve) { resolve(); };
+        for (let key of this.contextObjects) {
+          let config = { bind: true, context: key };
+          let done = function () { expect(this).toBe(key); };
+          let _catch = function () { expect(this).toBe(key); };
+          this.loop((method) => method([[individualContext, fnA], fnB], config, done, _catch));
+        }
+      });
+    });
+    describe('but with all functions in the collection that have the default context set', function () {
+      it('each function in the collection should have the this keyword that refers to the default context object|value', function () {
+        for (let key of this.contextObjects) {
+          let config = { bind: true, context: key };
+          let fnA = function (resolve) { expect(this).toBe(key); resolve(); };
+          let fnB = function (resolve) { expect(this).toBe(key); resolve(); };
+          this.loop((method) => method([fnA, fnB], config, () => { }, () => { }));
+        }
+      });
+      it('the done and catch functions should have the this keyword that refers to the default context object|value', function () {
+        const fnA = function (resolve) { resolve(); };
+        const fnB = function (resolve) { resolve(); };
+        for (let key of this.contextObjects) {
+          let config = { bind: true, context: key };
+          let done = function () { expect(this).toBe(key); };
+          let _catch = function () { expect(this).toBe(key); };
+          this.loop((method) => method([fnA, fnB], config, done, _catch));
+        }
       });
     });
   });
