@@ -1,0 +1,12 @@
+.git
+.vscode
+dist/move-on.js
+node_modules
+src
+tests
+.babelrc
+.eslintrc.json
+.gitignore
+debug-init.js
+jasmine.conf.js
+webpack.config.js
