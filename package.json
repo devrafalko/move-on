@@ -1,6 +1,6 @@
 {
   "name": "move-on",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "Creates a queue of sync or async functions with resolve and reject callback.",
   "main": "dist/move-on.node.js",
   "keywords": [
